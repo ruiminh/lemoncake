@@ -14,25 +14,34 @@
 
     <jsp:body>
 
-        <div>
-            <h2>Our Cool Site</h2>
+        <div style="margin-top: 5em;" class="container">
+            <form name="login" action="${pageContext.request.contextPath}/fc/basket"  method="POST">
+                <div class="container">
+                    <select class="form-select form-select-sm mb-3"  aria-label="Bund" name="topping" id="topping">
+                        <option selected>Vælg topping</option>
+                        <c:forEach var="topping" items="${applicationScope.toppingList}">
+                            <option value="${topping.toppingId}">${topping.name} (${topping.price}Kr.) </option>
+                        </c:forEach>
+                    </select>
 
-            <div style="margin-top: 3em;margin-bottom: 3em;">
-                Main page for this 2. semester start project used at cphbusiness.dk
-            </div>
+                    <select class="form-select form-select-sm mb-3"  aria-label="Bund" name="bottom" id="bottom">
+                        <option selected>Vælg bund</option>
+                        <c:forEach var="bottom" items="${applicationScope.bottomList}">
+                            <option value="${bottom.bottomId}">${bottom.name} (${bottom.price}Kr.) </option>
+                        </c:forEach>
+                    </select>
 
-            <c:if test="${sessionScope.role == 'employee' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an employee</p>
-                 <p><a href="fc/employeepage">Employee Page</a>
-             </c:if>
-
-             <c:if test="${sessionScope.role == 'customer' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a customer</p>
-                <p><a href="fc/customerpage">Customer Page</a>
-            </c:if>
-
+                    <select class="form-select form-select-sm mb-3" aria-label="antal" name="amount" id="amount">
+                        <option selected>Vælg antal</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">læg i kurv</button>
+            </form>
         </div>
 
     </jsp:body>

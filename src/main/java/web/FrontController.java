@@ -1,6 +1,7 @@
 package web;
 
 import business.exceptions.UserException;
+import business.persistence.CakeMapper;
 import business.persistence.Database;
 import web.commands.*;
 
@@ -19,7 +20,7 @@ public class FrontController extends HttpServlet
 {
     private final static String USER = "dev";
     private final static String PASSWORD = "ax2";
-    private final static String URL = "jdbc:mysql://localhost:3306/startcode?serverTimezone=CET";
+    private final static String URL = "jdbc:mysql://localhost:3306/cupcake?serverTimezone=CET";
 
     public static Database database;
 
@@ -39,6 +40,17 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
+        CakeMapper cakeMapper  = new CakeMapper(database);
+        try {
+            getServletContext().setAttribute("toppingList", cakeMapper.getAllToppings());
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        try {
+            getServletContext().setAttribute("bottomList", cakeMapper.getAllTBottoms());
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
 
     }
 
