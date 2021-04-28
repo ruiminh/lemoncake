@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cake:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cake</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cake-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cake:war exploded" />
+    </root>
+  </artifact>
+</component>
