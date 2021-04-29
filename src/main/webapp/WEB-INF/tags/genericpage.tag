@@ -34,8 +34,8 @@
             <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
         <a class="p-2 text-dark" href="#">Orders</a>
-        <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/basket">Basket</a>
-        <a class="p-2 text-dark" href="#">About</a>
+        <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/basketpage">Basket</a>
+        <a class="p-2 text-dark" href="#">Balace</a>
     </nav>
 
     <div>

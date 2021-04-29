@@ -21,8 +21,7 @@ public class BasketCommand extends CommandUnprotectedPage
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         int toppingId;
         int bottomId;
-        int amount;
-        try{
+        int amount;try{
             toppingId= Integer.parseInt(request.getParameter("topping"));
             bottomId= Integer.parseInt(request.getParameter("bottom"));
             amount = Integer.parseInt(request.getParameter("amount"));

@@ -17,13 +17,18 @@
 
         <table class="table table-striped">
 
-            <thead><th>Bund</th><th>Topping</th><th>Antal</th><th>pris</th></thead>
-            <c:forEach var="cupcakeEntry" items="${sessionScope.basket.cupcakeList}">
+            <thead><th>Bund</th><th>Topping</th><th>Antal</th><th>pris</th><th></th></thead>
+            <c:forEach var="cupcakeEntry" varStatus="status" items="${sessionScope.basket.cupcakeList}">
+
                 <tr>
                     <td>${cupcakeEntry.bottom.name}</td>
                     <td>${cupcakeEntry.topping.name}</td>
                     <td>${cupcakeEntry.amount}</td>
                     <td>${cupcakeEntry.price}</td>
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
+                        delete</button>
+
+                    </td>
                 <tr/>
             </c:forEach>
         </table>
@@ -41,13 +46,13 @@
 
 
             <c:if test="${sessionScope.user == null }">
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                <a type="button" class="btn btn-sm"
                    href="${pageContext.request.contextPath}/fc/loginpage">betale</a>
             </c:if>
 
             <c:if test="${sessionScope.user != null }">
-                <a type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/pay">betale</a>
+                <a type="button" class="btn btn-sm"
+                   href="${pageContext.request.contextPath}/fc/checkout">betale</a>
             </c:if>
 
         </div>

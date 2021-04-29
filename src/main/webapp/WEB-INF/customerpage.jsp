@@ -4,14 +4,18 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Customer Roles
+         Customer page
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
+        <h1>Welcome back! ${sessionScope.email} </h1>
         You are now logged in as a Customer of our wonderful site.
+        You can <a href="${pageContext.request.contextPath}/fc/basketpage">finish your order here</a>
+
+
+
         Role: ${sessionScope.role}
     </jsp:body>
 
